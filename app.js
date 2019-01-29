@@ -1,11 +1,11 @@
 var express = require('express'),
     fs = require('fs'),
     https = require('https'),
+    user = require('./routes/User'),
     app = express();
-
-app.get('/', function (req, res) {
-  res.send('hello world!');
-});
+    
+// Routes
+app.use('/users', user);
 
 var options = {
   key: fs.readFileSync('./sslcert/server.key'),

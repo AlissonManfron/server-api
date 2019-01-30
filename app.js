@@ -3,15 +3,18 @@ var express = require('express'),
     https = require('https'),
     user = require('./routes/User'),
     app = express();
-    
-// Routes
-app.use('/users', user);
 
+var port = process.env.port || 3000;
 var options = {
   key: fs.readFileSync('./sslcert/server.key'),
   cert: fs.readFileSync('./sslcert/server.cert')
 };
 
-https.createServer(options, app).listen(3000, function () {
-  console.log('Example app listening on port 3000! Go to https://localhost:3000/')
+    
+// Routes
+app.use('/users', user);
+
+
+https.createServer(options, app).listen(port, function () {
+  console.log('Example app listening on port '+ port + '! Go to https://localhost:3000/');
 });

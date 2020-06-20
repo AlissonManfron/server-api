@@ -9,7 +9,6 @@ var options = {
   key: fs.readFileSync('./sslcert/server.key'),
   cert: fs.readFileSync('./sslcert/server.cert')
 };
-
     
 // Routes
 app.use('/users', user);
